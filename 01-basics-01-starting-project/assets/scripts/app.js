@@ -20,6 +20,21 @@ function logOutput(operator, resultBeforeCalc, calcNumber){
   outputResult(currentResult, calcDescription);
 }
 
+//Function to write to log
+function wrtiteToLog(oprId, prevResult, oprNumbr, newResult){
+  //object construction to log the calculations
+  const logEntry = {
+    operation: oprId,
+    previousResult: prevResult,
+    number: oprNumbr,
+    result: newResult,
+  };
+
+  //array structure study
+  logEntries.push(logEntry);
+  console.log(logEntries);
+}
+
 //Addition
 function add() {
   const enteredNumber = getUserInput();
@@ -28,18 +43,7 @@ function add() {
   currentResult += enteredNumber;
   logOutput('+', initialResult, enteredNumber);
 
-  //object construction to log the calculations
-  const logEntry = {
-    operation: 'ADD',
-    previousResult: initialResult,
-    number: enteredNumber,
-    result: currentResult,
-  };
-
-  //array structure study
-  logEntries.push(logEntry);
-  console.log(logEntries);
-
+  wrtiteToLog('ADD', initialResult, enteredNumber, currentResult);
 }
 
 //Subtraction
@@ -49,6 +53,7 @@ function subtract() {
 
   currentResult -= enteredNumber;
   logOutput('-', initialResult, enteredNumber);
+  wrtiteToLog('SUBTRACT', initialResult, enteredNumber, currentResult);
 }
 
 //Multiplication
@@ -58,6 +63,7 @@ function multiply() {
 
   currentResult *= enteredNumber;
   logOutput('*', initialResult, enteredNumber);
+  wrtiteToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
 }
 
 //Division
@@ -67,6 +73,7 @@ function divide(){
 
   currentResult /= enteredNumber;
   logOutput('/', initialResult, enteredNumber);
+  wrtiteToLog('DIVISION', initialResult, enteredNumber, currentResult);
 }
 
 //Logic to HTML buttons and what functions each should execute 
