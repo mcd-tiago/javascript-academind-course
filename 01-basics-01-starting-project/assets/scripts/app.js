@@ -6,6 +6,7 @@ Unconventional Calculator
 
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = []; //Array
 
 
 //Function to get input
@@ -15,8 +16,8 @@ function getUserInput() {
 
 //Function to log the operation
 function logOutput(operator, resultBeforeCalc, calcNumber){
-  const calcDescriptiopn = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-  outputResult(currentResult, calcDescriptiopn);
+  const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
+  outputResult(currentResult, calcDescription);
 }
 
 //Addition
@@ -26,6 +27,19 @@ function add() {
 
   currentResult += enteredNumber;
   logOutput('+', initialResult, enteredNumber);
+
+  //object construction to log the calculations
+  const logEntry = {
+    operation: 'ADD',
+    previousResult: initialResult,
+    number: enteredNumber,
+    result: currentResult,
+  };
+
+  //array structure study
+  logEntries.push(logEntry);
+  console.log(logEntries);
+
 }
 
 //Subtraction
