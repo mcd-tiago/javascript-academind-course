@@ -22,6 +22,7 @@ function logOutput(operator, resultBeforeCalc, calcNumber){
 
 //Function to write to log
 function wrtiteToLog(oprId, prevResult, oprNumbr, newResult){
+  
   //object construction to log the calculations
   const logEntry = {
     operation: oprId,
